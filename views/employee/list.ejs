@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Employee List</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/employee.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body class="container">
+    <h3 class="header">Employee List</h3>
+
+    <a class="button" href="/employee"><i class="fa fa-plus"></i> Create New</a>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>City</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% list.forEach(function (employee){ %>
+        <tr>
+          <td><%= employee.fullName %></td>
+          <td><%= employee.email %></td>
+          <td><%= employee.mobile %></td>
+          <td><%= employee.city %></td>
+          <td>
+            <a class="edit-link" href="/employee/<%= employee._id %>">Edit</a>
+
+            <a
+              class="delete-link"
+              href="/employee/delete/<%= employee._id %>"
+              onclick="return confirm('Are you sure to delete this record ?');"
+              >Delete</a
+            >
+          </td>
+        </tr>
+        <% })%>
+      </tbody>
+    </table>
+  </body>
+</html>

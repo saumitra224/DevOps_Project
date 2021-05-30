@@ -1,0 +1,95 @@
+.container {
+  margin: 48px auto;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 50%;
+  text-align: center;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.header {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #282828;
+  font-size: 22px;
+}
+
+.button {
+  margin: 8px auto;
+  padding: 9px 12px;
+  color: #ffffff;
+  background-color: teal;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  font-size: 15px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.table td,
+.table th {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+.table tr:hover {
+  background-color: rgb(255, 255, 228);
+}
+
+.table th {
+  padding-top: 13px;
+  padding-bottom: 13px;
+  text-align: left;
+  background-color: teal;
+  color: white;
+  font-size: 15px;
+}
+
+.table td {
+  color: #282828;
+  font-size: 14px;
+}
+
+.edit-link {
+  color: red;
+  margin-right: 2px;
+}
+
+.delete-link {
+  color: blue;
+  margin-left: 2px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .container {
+    width: 96%;
+    border: none;
+  }
+}
