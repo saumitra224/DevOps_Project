@@ -12,10 +12,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # loads nvm bash_completion (node is in path now)
 
 #install node modules
-exho "Installing dependencies..."
+echo "Installing dependencies..."
 npm install
 npm install nodemon -g
 
 #start our node app
-exho "Starting server..."
+echo "Starting server..."
 npm run start
