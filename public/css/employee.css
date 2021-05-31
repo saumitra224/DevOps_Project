@@ -6,8 +6,6 @@
   width: 50%;
   text-align: center;
   box-sizing: border-box;
-  overflow-x: auto;
-  overflow-y: hidden;
 }
 
 .header {
@@ -27,6 +25,11 @@
   font-size: 15px;
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .table {
@@ -66,13 +69,13 @@
 }
 
 .edit-link {
-  color: red;
-  margin-right: 2px;
+  color: blue;
+  margin: 2px;
 }
 
 .delete-link {
-  color: blue;
-  margin-left: 2px;
+  color: red;
+  margin: 2px;
 }
 
 @media only screen and (max-width: 1024px) {

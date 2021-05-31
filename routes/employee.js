@@ -2,7 +2,7 @@ const express = require("express");
 
 const Employee = require("../models/Employee");
 
-const { handleValidationError } = require("../utils/index");
+const { handleValidationError, handleMongoError } = require("../utils/index");
 
 const router = express.Router();
 
@@ -16,7 +16,8 @@ router.get("/", (req, res) => {
       email: "",
       mobile: "",
       city: ""
-    }
+    },
+    buttonText: "Create"
   });
 });
 
@@ -32,7 +33,8 @@ router.post("/", async (req, res) => {
       res.redirect("/employee/list");
     } else {
       await Employee.findOneAndUpdate({ _id: req.body._id }, req.body, {
-        new: true
+        new: true,
+        runValidators: true
       });
 
       res.redirect("/employee/list");
@@ -43,7 +45,15 @@ router.post("/", async (req, res) => {
         handleValidationError(err, req.body);
         res.render("employee/addOrEdit", {
           viewTitle: "Insert Employee",
-          employee: req.body
+          employee: req.body,
+          buttonText: "Create"
+        });
+      } else if (err.name == "MongoError") {
+        handleMongoError(err, req.body);
+        res.render("employee/addOrEdit", {
+          viewTitle: "Insert Employee",
+          employee: req.body,
+          buttonText: "Create"
         });
       } else console.log("Error during record insertion : " + err);
     } else {
@@ -51,7 +61,15 @@ router.post("/", async (req, res) => {
         handleValidationError(err, req.body);
         res.render("employee/addOrEdit", {
           viewTitle: "Update Employee",
-          employee: req.body
+          employee: req.body,
+          buttonText: "Update"
+        });
+      } else if (err.name == "MongoError") {
+        handleMongoError(err, req.body);
+        res.render("employee/addOrEdit", {
+          viewTitle: "Update Employee",
+          employee: req.body,
+          buttonText: "Update"
         });
       } else console.log("Error during record update : " + err);
     }
@@ -84,7 +102,8 @@ router.get("/:id", async (req, res) => {
 
     res.render("employee/addOrEdit", {
       viewTitle: "Update Employee",
-      employee: employee
+      employee: employee,
+      buttonText: "Update"
     });
   } catch (err) {
     console.log("Error in retrieving employee :" + err);

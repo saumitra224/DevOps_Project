@@ -45,7 +45,8 @@
   margin: 4px auto 8px 4px;
 }
 
-.form-group input[type="text"] {
+.form-group input[type="text"],
+.form-group input[type="tel"] {
   width: 100%;
   padding: 12px 16px;
   margin: 6px 2px;
